@@ -1,0 +1,45 @@
+body{
+	background:darkgrey;}
+#info{
+	width:49.8%;
+	float:left;
+	margin-top: 50px;}
+fieldset{
+	width:55%;
+	margin-left:100px;
+	border: 2px solid blue;
+	border-radius:10px;
+	background-color:  rgba(128, 118, 127, 0.289);}
+legend{
+	margin-left:30px;
+	font-size:16pt;}
+table,th,td{
+	text-align:left;
+	height:20px;
+	padding-top:10px;}
+.in, select{
+	width: 160px;
+	height: 25px;
+	outline: none;
+	border-radius: 5px;
+}
+
+p{	margin-bottom: 0px;
+	margin-top: 0px;	
+}
+ul{	float: left;
+}
+li{	margin-left: 20px;
+}
+#submit{
+	background-color: green;
+	outline: none;
+	width: 120px;
+	height: 30px;
+	border-radius: 5px;
+	border: none;
+	font-weight: bolder; 
+}
+#submit:hover{
+	background-color: darkgreen;
+}

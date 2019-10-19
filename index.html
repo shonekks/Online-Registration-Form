@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Online Courses</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<center><font color="brown" size="20pt">Online Registration of Technical Programs</font></center><hr>
+<div id="info">
+<fieldset>
+	<legend><b>Registration</b></legend>
+	<center>
+	<table>
+		<tr><th><label for="pname">Name</label></th><td><input type="text" id="pname" class="in" placeholder="&nbsp;Participant Name"></td></tr>
+		<tr><th><label for="pcollege">College</label></th><td><input type="text" id="pcollege" class="in" placeholder="&nbsp;College Name"></td></tr>
+		<tr><th><label for="branch">Branch</label></th>
+			<td><select id="branch">
+				<option hidden>Select Branch</option><option>Civil</option><option>Computer Science</option>
+				<option>Electronics</option><option>Information Science</option><option>Mechanical</option>
+			</select></td></tr>
+		<tr><th><label>Programmes</label></th>
+			<td><label>C</label><input type="checkbox" id="course1" value="c1">
+			<label>C#</label><input type="checkbox" id="course2" value="c2">
+			<label>C++</label><input type="checkbox" id="course3" value="c3">
+			<label>Java</label><input type="checkbox" id="course4" value="c4"></td></tr>
+		<tr><th><label for="duration">Course duration</label></th>
+			<td><select id="duration">
+				<option hidden>Select Duration</option>
+				<option value="2">2 days</option>
+				<option value="7">7 days</option>
+				<option value="15">15 days</option>
+				<option value="30">30 days</option>
+			</select></td></tr>
+		<tr><th><label>Gender</label></th>
+			<td><input type="radio" name="gender" class="gen" value="Male"><label>Male</label>
+			<input type="radio" name="gender" class="gen" value="Female"><label>Female</label>
+			<input type="radio" name="gender" class="gen" value="Other"><label>Other</label></td></tr>
+		<tr><th><label for="date">Date of Birth</label></th><td><input type="date" id="date" class="in"></td></tr>
+		<tr><th><label>Type of Member</label></th>
+			<td><label>Internal</label><input type="radio" name="member" class="member" id="Internal">
+			<label>External</label><input type="radio" name="member" class="member" id="External"></td></tr>
+		</table><br>
+		<input type="submit" name="submit" id="submit" value="Submit" onclick="calc(this.id)">
+</fieldset>
+</div>
+<div id="info">
+	<fieldset>
+		<legend><b>Course Details</b></legend>
+		<ul><b>Internal members</b>
+			<li>C - $1500/day</li><li>C++ - $1750/day</li><li>C# - $1000/day</li><li>Java - $1250/day</li>
+		</ul>
+		<ul><b>External members</b>
+			<li>C - $1750/day</li><li>C++ - $2000/day</li><li>C# - $1500/day</li><li>Java - $1500/day</li>
+		</ul>
+	</fieldset><br><br>
+	<fieldset>
+		<legend><b>Registration Details</b></legend>
+			<p id="result2"><center></p>
+	</fieldset>
+</div>
+
+<script type="text/javascript">
+	document.getElementById('result2').innerHTML="<font color='red' size='4pt'><center>You have not registered yet!!</font><br>";
+	function calc(){
+		var sum=0;
+		var name=document.getElementById("pname").value;
+		var college=document.getElementById("pcollege").value;
+		var branch=document.getElementById("branch").value;
+		var duration=parseInt(document.getElementById("duration").value);
+		/*var gender=document.querySelector('.gen:checked').value;*/
+		if(document.getElementById("Internal").checked==true)
+		{
+			if(document.getElementById("course1").checked==true)	sum+=1500*duration;
+			if(document.getElementById("course2").checked==true)	sum+=1750*duration;
+			if(document.getElementById("course3").checked==true)	sum+=1000*duration;
+			if(document.getElementById("course4").checked==true)	sum+=1250*duration;
+		}
+		else if(document.getElementById("External").checked==true)
+		{
+			if(document.getElementById("course1").checked==true)	sum+=1750*duration;
+			if(document.getElementById("course2").checked==true)	sum+=2000*duration;
+			if(document.getElementById("course3").checked==true)	sum+=1500*duration;
+			if(document.getElementById("course4").checked==true)	sum+=1500*duration;
+		}
+		document.getElementById('result2').innerHTML="<font color='green' size='4pt'><center>Registration Successful</center></font><br>&emsp;&emsp;&emsp;Name: "+name+"<br>&emsp;&emsp;&emsp;College: "+college+"<br>&emsp;&emsp;&emsp;Branch: "+branch+"<br>&emsp;&emsp;&emsp;Duration: "+duration+" days<br>&emsp;&emsp;&emsp;<b>Total Amount: "+sum+"</b><br>";
+	}
+</script>
+
+</body>
+</html>
